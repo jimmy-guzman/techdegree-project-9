@@ -1,0 +1,46 @@
+// font stacks
+
+$font-url--google       : 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800';
+$font-family--primary   : 'Open Sans', sans-serif;
+$font-family--secondary : 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// font weights
+
+$font-weight--light       : 300;
+$font-weight--regular     : 400;
+$font-weight--semi-bold   : 600;
+$font-weight--bold        : 700;
+$font-weight--extra-bold  : 800;
+
+// discriptive color variables
+$ship-cove      :#7477bf;
+$mulled-wine    :#4d4c72;
+$de-york        :#81c98f;
+$glacier        :#74b1bf;
+$grey           :#999;
+$white          :#fff;
+
+// functional color variables
+
+$primary-color      : $ship-cove;
+$secondary-color    : $mulled-wine;
+
+$color-link-default : $white;
+$color-link-visited : $grey;
+
+$color-alert-badge  : $de-york;
+// text
+
+$base__font-size  : 14px;
+$base__line       : 24px;
+
+// border radius
+
+$br--default      : .3em;
+$br--round        : 50%;
+
+// breakpoints
+
+$brkpoint--sm     : 1px;
+$brkpoint--md     : 768px;
+$brkpoint--lg     : 768px;

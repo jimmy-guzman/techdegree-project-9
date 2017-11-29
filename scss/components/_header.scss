@@ -1,0 +1,43 @@
+.header {
+  background: $primary-color;
+  font-weight: $font-weight--light;
+  color: $white;
+  @include flex(flex, row, space-between, $items: center);
+  padding: 1em;
+  @include m("left") {
+    .title {
+      font-size: 18px;
+    }
+  }
+  @include m("right") {
+    @include flex(flex, $items: center);
+    .alert {
+      margin-right: 1em;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 90%;
+        left: 80%;
+        background: $color-alert-badge;
+        width: 5px;
+        height: 5px;
+        border-radius: $br--round;
+      }
+    }
+    .profile {
+      border-left: 1px solid $secondary-color;
+      padding: 0.3em 0 0.3em 1em;
+      @include e("name") {
+        font-size: 12px;
+      }
+      @include e("image") {
+        border-radius: $br--round;
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        margin-right: 0.3em;
+      }
+    }
+  }
+}
