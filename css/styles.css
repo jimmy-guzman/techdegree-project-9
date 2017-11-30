@@ -137,6 +137,9 @@ body {
       .charts__mobileUsers {
         width: 50%; } }
 
+#trafficChart, #dailytrafficChart, #mobileusersChart {
+  height: 100%; }
+
 * {
   box-sizing: border-box; }
 
