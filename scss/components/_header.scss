@@ -11,7 +11,7 @@
   }
   @include m("right") {
     @include flex(flex, $items: center);
-    .alert {
+    .notification {
       margin-right: 1em;
       position: relative;
       &:after {
@@ -19,7 +19,7 @@
         position: absolute;
         bottom: 90%;
         left: 80%;
-        background: $color-alert-badge;
+        background: $color-notification-badge;
         width: 5px;
         height: 5px;
         border-radius: $br--round;

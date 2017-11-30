@@ -1,0 +1,10 @@
+.nav {
+    background: $secondary-color;
+    @include flex(flex, row, space-around);
+    @include e("item") {
+        margin: 1.5em;
+    }
+    @include mq(medium) {
+        @include flex(flex, column nowrap, flex-start);
+    }
+}
