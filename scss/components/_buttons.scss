@@ -1,5 +1,5 @@
 .btn {
-    margin-bottom: 1.3em;
+  margin-bottom: 1.3em;
   width: 100%;
   padding: 1em;
   color: $white;
@@ -16,6 +16,8 @@
     background: $lightgrey;
   }
 }
+
+// settings toggle switch
 
 .toggle-switch {
   position: relative;
@@ -74,5 +76,5 @@
 }
 
 .settings-label {
-    margin: auto 0;
+  margin: auto 0;
 }

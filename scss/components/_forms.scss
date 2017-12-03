@@ -1,4 +1,4 @@
-form {
+.message-user, .settings {
   input,
   textarea,
   select {
@@ -22,20 +22,28 @@ form {
 }
 
 .dashboard-search {
+  @include flex(flex, row, center);
+  @include mq(medium) {
     width: 75%;
-    padding: 1em;
-    border-bottom: 1px solid $border-color;
-    border-left: 1px solid $border-color;
-    background: #fbfbfb;
-   input {
-       margin-right: 0;
-       width: 50%;
+    @include flex(flex, row, flex-end);
+  }
+  
+  padding: 1em;
+  @extend %border-bottom;
+  border-left: 1px solid $border-color;
+  background: #fbfbfb;
+  input {
+    margin-right: 0;
+    width: 50%;
     @extend %border-default;
-    padding: 1em;
+    padding: .7em;
     border: 1px solid $border-color;
   }
 }
 
 .dashboard-title {
-    font-weight: $font-weight--regular;
+  vertical-align: middle;
+  margin-top: 1em;
+  margin-left: 1em;
+  font-weight: $font-weight--regular;
 }

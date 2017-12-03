@@ -3,4 +3,7 @@
     @include e(item) {
         margin: 1.5em;
     }
+    &__item:not(:first-child) {
+        opacity: .6;
+    }
 }

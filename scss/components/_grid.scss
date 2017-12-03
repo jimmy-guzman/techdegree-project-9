@@ -5,17 +5,18 @@ body {
   width: 100%;
 }
 .grid {
-  @include mq(medium) {
-    @include e(row) {
+  @include e(row) {
+    @include mq(medium) {
       @include flex(flex, row, space-between);
-
     }
-    @include e(col) {
+  }
+  @include e(col) {
+    @include mq(medium) {
       width: 100%;
       @include flex(flex, column);
       @include g-columns;
       &--6 {
-        @include flex(flex, column, space-between)
+        @include flex(flex, column, space-between);
       }
     }
   }
@@ -31,54 +32,21 @@ body {
 .switch-bar {
   @include flex(flex, row, space-between);
 }
-.icon__bg--social {
-  padding: 1em;
-  margin-left: 0;
-  background: $primary-color;
-  border-radius: $br--round;
-  height: 75px;
-  width: 75px;
-  @include flex (flex, $items: center);
-  svg {
-    margin: 0 auto;
-    display: block;
-    transform-origin: 50% 50%;
-  }
-  svg path {
-    fill: #fff;
-  }
-  .twitter__icon {
-    transform: translateY(3px);
-  }
-  .facebook__icon {
-    transform: translateY(-3.3px);
-  }
-}
 
-.icon__container--social {
-  background: #fbfbfb;
-  @include flex (flex, row, $items: center);
-  margin-bottom: 1.3em;
+.daily-traffic,
+.new-members,
+.message-user {
   @include mq(medium) {
-    margin: 0 auto;
-  }
-  
-
-  padding: 1em;
-  @extend %border-default;
-  h3 {
-    color: $primary-color;
-    margin: 0;
-  }
-  p {
-    font-size: 3em;
-    margin: 0;
-    @include mq(large) {
-      font-size: 4em;
-    }
+    border-right: 1px solid $border-color;
   }
 }
 
-.social-text {
-  margin-left: 1em;
+.dashboard > .grid__row > .grid__col--6,
+.social-stats,
+.traffic {
+  padding: 1em;
+}
+
+.dashboard > .grid__row:not(:first-child) {
+  @extend %border-bottom;
 }
