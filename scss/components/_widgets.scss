@@ -1,0 +1,54 @@
+.newmember-image {
+  width: 40px;
+  height: 40px;
+  border-radius: $br--round;
+  margin-left: 1em;
+  @include mq(medium) {
+    margin-left: 0;
+  }
+}
+
+.newmember-info {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 auto 0.7em;
+  li:last-child {
+    color: $primary-color;
+    font-size: 12px;
+  }
+}
+
+.newmembers > div {
+  padding: 1em 0;
+  &:not(:last-child) {
+    @extend %border-bottom;
+  }
+  margin-bottom: 1em;
+  @include mq(medium) {
+    height: 70px;
+  }
+}
+
+.signup-date a {
+  font-size: 3em;
+  color: $primary-color;
+}
+.signup-date {
+  text-align: right;
+}
+
+.daily-traffic, .new-members, .message-user{
+  @include mq(medium) {
+    border-right: 1px solid $border-color;
+  }
+
+}
+
+.dashboard > .grid__row > .grid__col--6, .social-stats, .traffic {
+  padding: 1em;
+}
+
+
+.dashboard > .grid__row {
+  border-bottom: 1px solid $border-color;
+}

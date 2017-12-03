@@ -1,0 +1,20 @@
+%border-default {
+  border-radius: $br--default;
+  border: 1px solid $border-color;
+}
+
+%border-bottom {
+  border-bottom: 1px solid $border-color;
+}
+
+%toggle-switch-onoff {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  color: $white;
+  font-size: 14px;
+  font-family: $font-family--primary;
+  font-weight: $font-weight--bold;
+  text-transform: uppercase;
+  user-select: none;
+}

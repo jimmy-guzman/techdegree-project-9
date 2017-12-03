@@ -1,6 +1,7 @@
 body {
     font-family: $font-family--primary;
     font-size: $base__font-size;
+    color: $darkgrey;
 }
 
 
@@ -12,3 +13,9 @@ a {
 .title span {
     font-weight: bold;
 }
+
+.widget-title {
+    display: block;
+    margin: 1.3em 0 0 1.3em;
+}
+

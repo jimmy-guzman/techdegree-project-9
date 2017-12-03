@@ -155,5 +155,56 @@ var trafficChart = new Chart(ctz, {
   }
 });
 
+const alert = document.querySelector(".alert");
+const alertButton = document.getElementById("alertButton");
+const messageUser = document.querySelector(".message-user");
+const form = messageUser.getElementsByTagName("form")[0];
+const user = document.getElementById("user");
+const message = document.getElementById("message");
+const sendButton = document.getElementById("sendButton");
 
+alertButton.addEventListener("click", function() {
+  alert.style.display = "none";
+});
 
+sendButton.addEventListener("click", function() {
+  if (!user.value || !message.value) {
+    user.addEventListener("input", function(e) {
+      sendButton.innerText = "Send"
+      sendButton.style.backgroundColor = "#7477bf";
+      if (user.value) {
+        user.style.borderColor = "#81c98f";
+      } else {
+        user.style.borderColor = "red";
+      }
+    });
+    message.addEventListener("input", function(e) {
+      sendButton.innerText = "Send";
+      sendButton.style.backgroundColor = "#7477bf";
+      if (this.value) {
+        this.style.borderColor = "#81c98f";
+      } else {
+        this.style.borderColor = "red";
+      }
+    });
+  }
+  if (!user.value && !message.value) {
+    user.style.borderColor = "red";
+    message.style.borderColor = "red";
+    sendButton.innerText = "Empty Fields";
+    sendButton.style.backgroundColor = "red";
+  } else if (!user.value) {
+    user.style.borderColor = "red";
+    sendButton.innerText = "No User";
+    sendButton.style.backgroundColor = "red";
+  } else if (!message.value) {
+    message.style.borderColor = "red";
+    sendButton.innerText = "No Message";
+    sendButton.style.backgroundColor = "red";
+  }
+  else {
+    sendButton.innerText = "Sent Message!";
+    sendButton.style.backgroundColor = "#81c98f";
+    form.reset();
+  }
+});

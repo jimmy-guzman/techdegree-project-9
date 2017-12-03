@@ -17,7 +17,9 @@ $ship-cove      :#7477bf;
 $mulled-wine    :#4d4c72;
 $de-york        :#81c98f;
 $glacier        :#74b1bf;
-$grey           :#999;
+$lightgrey      : #d1d1d1;
+$darkgrey           : #686868;
+$grey      : #b2b2b2;
 $white          :#fff;
 
 // functional color variables
@@ -29,6 +31,8 @@ $color-link-default : $white;
 $color-link-visited : $grey;
 
 $color-notification-badge  : $de-york;
+
+$border-color: $lightgrey;
 // text
 
 $base__font-size  : 14px;
@@ -44,3 +48,9 @@ $br--round        : 50%;
 $brkpoint--sm     : 1px;
 $brkpoint--md     : 768px;
 $brkpoint--lg     : 1024px;
+
+
+$g-col-width    : 65px;
+$g-gutter-width : 20px;
+$g-col-count    : 12;
+$g-cont-max-w   : 1400px;
