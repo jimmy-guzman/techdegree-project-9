@@ -30,12 +30,14 @@ a {
   text-decoration: none;
   color: #fff; }
 
-.title span {
-  font-weight: bold; }
-
 .widget-title {
   display: block;
   margin: 1.3em 0 0 1.3em; }
+
+.app-name {
+  font-size: 18px; }
+  .app-name span {
+    font-weight: 700; }
 
 body {
   width: 100%; }
@@ -113,16 +115,14 @@ body {
   background: #7477bf;
   font-weight: 300;
   color: #fff;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
   align-items: center;
   padding: 1em; }
-  .header--left .title {
-    font-size: 18px; }
   .header--right {
     display: flex;
-    align-items: center; }
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em; }
     .header--right .notification {
       margin-right: 1em;
       position: relative; }
@@ -146,6 +146,9 @@ body {
         height: 24px;
         vertical-align: middle;
         margin-right: 0.3em; }
+    @media (min-width: 769px) {
+      .header--right {
+        margin-top: 0; } }
 
 .sidebar {
   background: #4d4c72; }

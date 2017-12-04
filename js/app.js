@@ -162,20 +162,27 @@ const form = messageUser.getElementsByTagName("form")[0];
 const user = document.getElementById("user");
 const message = document.getElementById("message");
 const sendButton = document.getElementById("sendButton");
-
+const emailNotifSwitch = document.getElementById("emailNotifSwitch");
+const profilePublicSwitch = document.getElementById("profilePublicSwitch");
+const timeZone = document.getElementById("timeZone");
+const saveButton = document.getElementById("saveButton");
+const cancelButton = document.getElementById("cancelButton");
+let saveSettings;
+//----- close alert -----
 alertButton.addEventListener("click", function() {
   alert.style.display = "none";
 });
 
+//-----  error messages and sent confirmation simulator (needs refactoring) -----
 sendButton.addEventListener("click", function() {
   if (!user.value || !message.value) {
     user.addEventListener("input", function(e) {
-      sendButton.innerText = "Send"
+      sendButton.innerText = "Send";
       sendButton.style.backgroundColor = "#7477bf";
-      if (user.value) {
-        user.style.borderColor = "#81c98f";
+      if (this.value) {
+        this.style.borderColor = "#81c98f";
       } else {
-        user.style.borderColor = "red";
+        this.style.borderColor = "red";
       }
     });
     message.addEventListener("input", function(e) {
@@ -201,10 +208,32 @@ sendButton.addEventListener("click", function() {
     message.style.borderColor = "red";
     sendButton.innerText = "No Message";
     sendButton.style.backgroundColor = "red";
-  }
-  else {
+  } else {
     sendButton.innerText = "Sent Message!";
     sendButton.style.backgroundColor = "#81c98f";
     form.reset();
   }
+});
+
+// ----- save and cancel settings -----
+
+if (localStorage.saveSettings) {
+  loadSettings();
+}
+
+function loadSettings() {
+  timeZone.selectedIndex = localStorage.selectedIndex;
+  emailNotifSwitch.checked = JSON.parse(localStorage.sendEmail);
+  profilePublicSwitch.checked = JSON.parse(localStorage.setProfile);
+}
+
+saveButton.addEventListener("click", function() {
+  localStorage.saveSettings = true;
+  localStorage.selectedIndex = timeZone.selectedIndex;
+  localStorage.sendEmail = emailNotifSwitch.checked;
+  localStorage.setProfile = profilePublicSwitch.checked;
+});
+
+cancelButton.addEventListener("click", function() {
+  loadSettings();
 });

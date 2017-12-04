@@ -1,21 +1,22 @@
 body {
-    font-family: $font-family--primary;
-    font-size: $base__font-size;
-    color: $darkgrey;
+  font-family: $font-family--primary;
+  font-size: $base__font-size;
+  color: $darkgrey;
 }
-
 
 a {
-    text-decoration: none;
-    color: $color-link-default;
-}
-
-.title span {
-    font-weight: bold;
+  text-decoration: none;
+  color: $color-link-default;
 }
 
 .widget-title {
-    display: block;
-    margin: 1.3em 0 0 1.3em;
+  display: block;
+  margin: 1.3em 0 0 1.3em;
 }
 
+.app-name {
+  font-size: 18px;
+  span {
+    font-weight: $font-weight--bold;
+  }
+}
