@@ -301,6 +301,8 @@ let autoComplete = {
 
 autoComplete.setUpEventListeners();
 
+
+// -----notification popups (needs refactoring)-----
 notification.addEventListener('click', function(){
   popUp.style.display = 'flex';
   let notifs = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.', 'Praesent libero. Sed cursus ante dapibus diam. Sed nisi.' ];
