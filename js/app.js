@@ -216,7 +216,7 @@ sendButton.addEventListener("click", function() {
   }
 });
 
-// ----- save and cancel settings -----
+// ----- save and cancel settings (needs refactoring) -----
 
 if (localStorage.saveSettings) {
   loadSettings();
@@ -239,30 +239,62 @@ cancelButton.addEventListener("click", function() {
   loadSettings();
 });
 
-let users = ["Victoria Chambers", "Dale Byrd", "Dawn Wood", "Dan Oliver"];
+// ----- autocomplete function (needs refactoring) -----
+let users = [
+  "Victoria Chambers",
+  "Dale Byrd",
+  "Dawn Wood",
+  "Dan Oliver",
+  "Ricardo Trautman",
+  "Alfredo Debelak",
+  "Benny Medlin",
+  "Tiera Ollis",
+  "Vanita Chevere",
+  "Shiloh Clarkson",
+  "Maryann Krull",
+  "Rachel Lain",
+  "Veola Christofferso",
+  "Catherin Kifer",
+  "Vergie Templin",
+  "France Mackley",
+  "Ethelyn Nourse",
+  "Gloria Hochman",
+  "Daren Drinkwater",
+  "Emelina Gulbranson",
+  "Cristin Weil",
+  "Jessica Hopton",
+  "Amada Champney",
+  "Shan Seldon"
+];
 
-function searchUsers(arr, input) {
-  let result = '';
+function searchUsers(arr, str) {
+  let results = [];
   for (let i = 0; i < arr.length; i++) {
-    let temp = users[i].slice(0, input.length);
-    if (input === temp) {
-      result = users[i];
-      
+    let temp = users[i].slice(0, str.length);
+    if (str === temp) {
+      results.push(users[i]);
     }
   }
-  return result;
+  return results;
 }
 
 user.addEventListener("input", function(e) {
   let input = this.value;
-  console.log(input);
-  if 
-  render(searchUsers(users, input));
+  if (this.value.length > 0) {
+    ul.innerHTML = "";
+    render(searchUsers(users, input));
+  } else {
+    ul.innerHTML = "";
+  }
 });
 
-function render(name) {
-  let li = document.createElement("LI");
-  li.innerText = name;
-  ul.appendChild(li);
-  console.log(li);
+function render(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    ul.innerHTML += "<li>" + arr[i] + "</li>";
+  }
 }
+
+ul.addEventListener("click", function(e) {
+  user.value = e.target.innerText;
+  ul.innerHTML = "";
+});

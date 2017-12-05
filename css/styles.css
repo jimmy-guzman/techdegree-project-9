@@ -263,8 +263,21 @@ body {
   margin-left: 1em; }
 
 .message-user ul {
-  list-style-type: none;
-  margin-top: -.8em; }
+  list-style: none;
+  -webkit-margin-before: 0;
+  -webkit-padding-start: 0; }
+  .message-user ul li {
+    margin: 0 auto;
+    width: 95%;
+    cursor: pointer;
+    border-radius: 0.3em;
+    display: block;
+    border: 1px solid #d1d1d1;
+    background: #fbfbfb;
+    padding: .5em;
+    margin-bottom: .3em; }
+    .message-user ul li:hover {
+      border-color: #7477bf; }
 
 .message-user input,
 .message-user textarea,
