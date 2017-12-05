@@ -262,6 +262,10 @@ body {
 .social-text {
   margin-left: 1em; }
 
+.message-user ul {
+  list-style-type: none;
+  margin-top: -.8em; }
+
 .message-user input,
 .message-user textarea,
 .message-user select, .settings input,

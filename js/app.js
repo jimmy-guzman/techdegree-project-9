@@ -168,6 +168,7 @@ const timeZone = document.getElementById("timeZone");
 const saveButton = document.getElementById("saveButton");
 const cancelButton = document.getElementById("cancelButton");
 let saveSettings;
+const ul = document.getElementById("autocompleteNames");
 //----- close alert -----
 alertButton.addEventListener("click", function() {
   alert.style.display = "none";
@@ -237,3 +238,31 @@ saveButton.addEventListener("click", function() {
 cancelButton.addEventListener("click", function() {
   loadSettings();
 });
+
+let users = ["Victoria Chambers", "Dale Byrd", "Dawn Wood", "Dan Oliver"];
+
+function searchUsers(arr, input) {
+  let result = '';
+  for (let i = 0; i < arr.length; i++) {
+    let temp = users[i].slice(0, input.length);
+    if (input === temp) {
+      result = users[i];
+      
+    }
+  }
+  return result;
+}
+
+user.addEventListener("input", function(e) {
+  let input = this.value;
+  console.log(input);
+  if 
+  render(searchUsers(users, input));
+});
+
+function render(name) {
+  let li = document.createElement("LI");
+  li.innerText = name;
+  ul.appendChild(li);
+  console.log(li);
+}
