@@ -111,6 +111,7 @@ body {
   padding: 1em; }
 
 .header {
+  position: relative;
   width: 100%;
   background: #7477bf;
   font-weight: 300;
@@ -126,11 +127,13 @@ body {
     .header--right .notification {
       margin-right: 1em;
       position: relative; }
+      .header--right .notification:hover {
+        cursor: help; }
       .header--right .notification:after {
         content: "";
         position: absolute;
-        bottom: 90%;
-        left: 80%;
+        bottom: 85%;
+        left: 75%;
         background: #81c98f;
         width: 5px;
         height: 5px;
@@ -149,6 +152,40 @@ body {
     @media (min-width: 769px) {
       .header--right {
         margin-top: 0; } }
+
+.pop-up {
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: space-between;
+  top: 13em;
+  width: 400px;
+  display: none;
+  border: 1px solid #d1d1d1;
+  border-radius: 0.3em;
+  position: absolute;
+  background: #fbfbfb;
+  color: #7477bf; }
+  @media (min-width: 769px) {
+    .pop-up {
+      width: 500px;
+      right: 1em;
+      top: 5em; } }
+  .pop-up button {
+    margin: 0 auto;
+    width: 100%;
+    background: #d1d1d1;
+    border: none;
+    padding: .4em;
+    font-size: 12px;
+    color: #fff;
+    transition: 0.4s; }
+    .pop-up button:hover {
+      background: #b2b2b2; }
+  .pop-up p {
+    padding: 0.6em; }
+    .pop-up p:hover {
+      background: #7477bf;
+      color: #fff; }
 
 .sidebar {
   background: #4d4c72; }
