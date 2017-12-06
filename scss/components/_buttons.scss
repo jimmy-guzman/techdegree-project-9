@@ -18,14 +18,20 @@
 }
 
 // settings toggle switch
-
+.label {
+  position: absolute;
+  z-index: 100;
+  width: 95px;
+  height: 34px;
+  cursor: pointer;
+}
 .toggle-switch {
   position: relative;
   display: inline-block;
   width: 95px;
   height: 34px;
   input {
-    display: none;
+    display: none;  
   }
 }
 

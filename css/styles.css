@@ -409,6 +409,13 @@ body {
   .btn.secondary {
     background: #d1d1d1; }
 
+.label {
+  position: absolute;
+  z-index: 100;
+  width: 95px;
+  height: 34px;
+  cursor: pointer; }
+
 .toggle-switch {
   position: relative;
   display: inline-block;
