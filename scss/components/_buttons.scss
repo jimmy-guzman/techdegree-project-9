@@ -78,3 +78,21 @@
 .settings-label {
   margin: auto 0;
 }
+
+.widget-buttons {
+  margin-top: 1.3em;
+  button {
+    padding: .3em;
+    border-radius: 1em;
+    margin-right: 1em;
+    font-weight: $font-weight--bold;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: $darkgrey;
+  }
+  .selected {
+    background: $de-york;
+    color: $white;
+  }
+}

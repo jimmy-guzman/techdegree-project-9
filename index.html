@@ -24,10 +24,10 @@
 
                 </div>
                 <div class="pop-up">
-                        <button id="closeNotifButton" aria-label="Close Notfication">Close Notifications</button>
-                        
+                    <button id="closeNotifButton" aria-label="Close Notfication">Close Notifications</button>
+
                     <div class="notifications">
-                        
+
                     </div>
                 </div>
                 <div class="profile">
@@ -87,12 +87,18 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="widget-header">
                     <h3 class="widget-title">Traffic</h3>
+                    <div class="grid__row widget-buttons">
+                        <button>Hourly</button>
+                        <button>Daily</button>
+                        <button>Weekly</button>
+                        <button class="selected">Monthly</button>
+                    </div>
                 </div>
                 <div class="grid__row ">
                     <div class="grid__col--12 traffic">
-                        <canvas id="trafficChart"></canvas>
+                        <canvas id="trafficChartMonthly"></canvas>
                     </div>
                 </div>
 

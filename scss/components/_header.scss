@@ -76,14 +76,34 @@
     color: $white;
     transition: 0.4s;
     &:hover {
+      cursor: pointer;
       background: $grey;
     }
   }
   p {
+    line-height: 1;
     padding: 0.6em;
+    span {
+      cursor: pointer;
+      display:inline-block;
+      vertical-align: middle;
+      margin-right: .5em;
+      font-size: 20px;
+      color: $lightgrey;
+      transition: .3s;
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
     &:hover {
+      cursor: default;
       background: $primary-color;
       color: $white;
     }
   }
+}
+
+
+.widget-header {
+  @include flex(flex, row, space-between, $items: center);
 }
