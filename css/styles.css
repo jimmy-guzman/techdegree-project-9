@@ -41,6 +41,9 @@ a {
 
 body {
   width: 100%; }
+  @media (min-width: 769px) {
+    body {
+      background: #d1d1d1; } }
 
 .container {
   width: 100%; }
@@ -109,6 +112,11 @@ body {
 .social-stats,
 .traffic {
   padding: 1em; }
+
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #fff; }
 
 .header {
   position: relative;

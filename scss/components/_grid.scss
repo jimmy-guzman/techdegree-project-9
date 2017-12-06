@@ -1,10 +1,16 @@
 body {
   width: 100%;
+  @include mq(medium) {
+    background: $lightgrey;
+  }
+ 
 }
 .container {
   width: 100%;
+
 }
 .grid {
+ 
   @include e(row) {
     @include mq(medium) {
       @include flex(flex, row, space-between);
@@ -47,6 +53,13 @@ body {
   padding: 1em;
 }
 
+
 .dashboard > .grid__row:not(:first-child) {
   @extend %border-bottom;
+}
+
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: $white;
 }

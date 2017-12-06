@@ -336,8 +336,8 @@ alertButton.addEventListener("click", function() {
 });
 
 //-----  error messages and sent confirmation simulator (needs refactoring) -----
+
 sendButton.addEventListener("click", function() {
-  if (!user.value || !message.value) {
     user.addEventListener("input", function(e) {
       sendButton.innerText = "Send";
       sendButton.style.backgroundColor = "#7477bf";
@@ -356,7 +356,6 @@ sendButton.addEventListener("click", function() {
         this.style.borderColor = "red";
       }
     });
-  }
   if (!user.value && !message.value) {
     user.style.borderColor = "red";
     message.style.borderColor = "red";
