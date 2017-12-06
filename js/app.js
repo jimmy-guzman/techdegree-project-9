@@ -20,18 +20,17 @@ const notifications = popUp.querySelector(".notifications");
 const poUpbutton = document.getElementById("closeNotifButton");
 
 // ----- chart js set up  (needs a lot of refactoring)-----
+// ----- daily traffic chart-----
 var ctx = document.getElementById("dailyTrafficChart").getContext("2d");
 var dailyTrafficChart = new Chart(ctx, {
   type: "bar",
   data: {
     labels: ["S", "M", "T", "W", "T", "F", "S"],
-    datasets: [
-      {
-        label: "",
-        data: [50, 75, 150, 100, 200, 175, 75],
-        backgroundColor: "rgba(116, 119, 191, 1)"
-      }
-    ]
+    datasets: [{
+      label: "",
+      data: [50, 75, 150, 100, 200, 175, 75],
+      backgroundColor: "rgba(116, 119, 191, 1)"
+    }]
   },
   options: {
     legend: {
@@ -41,42 +40,36 @@ var dailyTrafficChart = new Chart(ctx, {
       padding: 20
     },
     scales: {
-      xAxes: [
-        {
-          barPercentage: 0.6,
-          gridLines: {
-            drawTicks: true
-          }
+      xAxes: [{
+        barPercentage: 0.6,
+        gridLines: {
+          drawTicks: true
         }
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            drawTicks: true
-          },
-          ticks: {
-            stepSize: 50,
-            max: 250,
-            min: 0
-          }
+      }],
+      yAxes: [{
+        gridLines: {
+          drawTicks: true
+        },
+        ticks: {
+          stepSize: 50,
+          max: 250,
+          min: 0
         }
-      ]
+      }]
     }
   }
 });
-
+// -----mobile chart-----
 var cty = document.getElementById("mobileUsersChart").getContext("2d");
 var mobileUsersChart = new Chart(cty, {
   type: "doughnut",
   data: {
     labels: ["Tablets", "Phones", "Desktop"],
-    datasets: [
-      {
-        data: [15, 15, 70],
-        backgroundColor: ["#81c98f", "#74b1bf", "#7477bf"],
-        borderWidth: [0, 0, 0]
-      }
-    ]
+    datasets: [{
+      data: [15, 15, 70],
+      backgroundColor: ["#81c98f", "#74b1bf", "#7477bf"],
+      borderWidth: [0, 0, 0]
+    }]
   },
   options: {
     legend: {
@@ -93,6 +86,8 @@ var mobileUsersChart = new Chart(cty, {
   }
 });
 
+// -----traffic charts data and options (hourly, daily, weekyly, monthly)-----
+const trafficChartContext = document.getElementById("trafficChartMonthly").getContext("2d");
 const makeTrafficChart = {
   options: {
     legend: {
@@ -107,15 +102,11 @@ const makeTrafficChart = {
       }
     },
     scales: {
-      yAxes: [
-        {
-            ticks: {
-            min: 0,
-            stepSize: 500,
-            max: 2500
-          }
+      yAxes: [{
+        ticks: {
+          min: 0
         }
-      ]
+      }]
     }
   },
   monthly: {
@@ -133,31 +124,29 @@ const makeTrafficChart = {
       "November",
       "December"
     ],
-    datasets: [
-      {
-        label: "",
-        data: [
-          750,
-          1250,
-          750,
-          1250,
-          1750,
-          1250,
-          1500,
-          1000,
-          1500,
-          2000,
-          250,
-          1800
-        ],
-        backgroundColor: "rgba(116, 119, 191, .25)",
-        borderColor: "#7477bf",
-        borderWidth: 1,
-        lineTension: 0,
-        pointBackgroundColor: "white",
-        pointRadius: 5
-      }
-    ]
+    datasets: [{
+      label: "",
+      data: [
+        750,
+        1250,
+        750,
+        1250,
+        1750,
+        1250,
+        1500,
+        1000,
+        1500,
+        2000,
+        250,
+        1800
+      ],
+      backgroundColor: "rgba(116, 119, 191, .25)",
+      borderColor: "#7477bf",
+      borderWidth: 1,
+      lineTension: 0,
+      pointBackgroundColor: "white",
+      pointRadius: 5
+    }]
   },
   weekly: {
     labels: [
@@ -173,32 +162,30 @@ const makeTrafficChart = {
       "18-24",
       "25-31r"
     ],
-    datasets: [
-      {
-        label: "",
-        data: [
-          500,
-          1000,
-          750,
-          1250,
-          1750,
-          1250,
-          1500,
-          1000,
-          1500,
-          2000,
-          1500,
-          2000
-        ],
-        backgroundColor: "rgba(116, 119, 191, .25)",
-        borderColor: "#7477bf",
-        borderWidth: 1,
-        lineTension: 0,
-        pointBackgroundColor: "white",
-        pointRadius: 5
-      }
-    ]
-  }, 
+    datasets: [{
+      label: "",
+      data: [
+        500,
+        1000,
+        750,
+        1250,
+        1750,
+        1250,
+        1500,
+        1000,
+        1500,
+        2000,
+        1500,
+        2000
+      ],
+      backgroundColor: "rgba(116, 119, 191, .25)",
+      borderColor: "#7477bf",
+      borderWidth: 1,
+      lineTension: 0,
+      pointBackgroundColor: "white",
+      pointRadius: 5
+    }]
+  },
   daily: {
     labels: [
       "Monday",
@@ -209,20 +196,18 @@ const makeTrafficChart = {
       "Saturday",
       "Sunday",
     ],
-    datasets: [
-      {
-        label: "",
-        data: [
-         75,  50, 75, 150, 100, 200, 175
-        ],
-        backgroundColor: "rgba(116, 119, 191, .25)",
-        borderColor: "#7477bf",
-        borderWidth: 1,
-        lineTension: 0,
-        pointBackgroundColor: "white",
-        pointRadius: 5
-      }
-    ]
+    datasets: [{
+      label: "",
+      data: [
+        75, 50, 75, 150, 100, 200, 175
+      ],
+      backgroundColor: "rgba(116, 119, 191, .25)",
+      borderColor: "#7477bf",
+      borderWidth: 1,
+      lineTension: 0,
+      pointBackgroundColor: "white",
+      pointRadius: 5
+    }]
   },
   hourly: {
     labels: [
@@ -250,50 +235,49 @@ const makeTrafficChart = {
       "22:00",
       "23:00",
     ],
-    datasets: [
-      {
-        label: "",
-        data: [
-         75,  50, 75, 150, 100, 200, 175, 25, 5, 10, 10, 25, 50, 100, 250, 5, 0, 15, 30, 20, 25, 200, 170, 150
-        ],
-        backgroundColor: "rgba(116, 119, 191, .25)",
-        borderColor: "#7477bf",
-        borderWidth: 1,
-        lineTension: 0,
-        pointBackgroundColor: "white",
-        pointRadius: 5
-      }
-    ]
+    datasets: [{
+      label: "",
+      data: [
+        75, 50, 75, 150, 100, 200, 175, 25, 5, 10, 10, 25, 50, 100, 250, 5, 0, 15, 30, 20, 25, 200, 170, 150
+      ],
+      backgroundColor: "rgba(116, 119, 191, .25)",
+      borderColor: "#7477bf",
+      borderWidth: 1,
+      lineTension: 0,
+      pointBackgroundColor: "white",
+      pointRadius: 5
+    }]
   }
 };
 
+// -----traffic charts (hourly, daily, weekyly, monthly)-----
 const loadTrafficChart = {
-  monthly: function() {
-    var ctz = document.getElementById("trafficChartMonthly").getContext("2d");
+  monthly: function () {
+    var ctz = trafficChartContext;
     var trafficChartMonthly = new Chart(ctz, {
       type: "line",
       data: makeTrafficChart.monthly,
       options: makeTrafficChart.options
     });
   },
-  weekly: function() {
-    var ctz = document.getElementById("trafficChartMonthly").getContext("2d");
+  weekly: function () {
+    var ctz = trafficChartContext;
     var trafficChartMonthly = new Chart(ctz, {
       type: "line",
       data: makeTrafficChart.weekly,
       options: makeTrafficChart.options
     });
   },
-  daily: function() {
-    var ctz = document.getElementById("trafficChartMonthly").getContext("2d");
+  daily: function () {
+    var ctz = trafficChartContext;
     var trafficChartMonthly = new Chart(ctz, {
       type: "line",
       data: makeTrafficChart.daily,
       options: makeTrafficChart.options
     });
   },
-  hourly: function() {
-    var ctz = document.getElementById("trafficChartMonthly").getContext("2d");
+  hourly: function () {
+    var ctz = trafficChartContext;
     var trafficChartMonthly = new Chart(ctz, {
       type: "line",
       data: makeTrafficChart.hourly,
@@ -302,60 +286,58 @@ const loadTrafficChart = {
   },
 }
 
+// -----load different traffic charts (hourly, daily, weekyly, monthly)-----
 loadTrafficChart.monthly();
 const widgetButtons = document.querySelector('.widget-buttons');
 
-widgetButtons.addEventListener('click', function(e){
+widgetButtons.addEventListener('click', function (e) {
   for (let i = 0; i < widgetButtons.children.length; i++) {
     widgetButtons.children[i].classList.remove('selected');
-    
   }
-
   if (e.target.innerText.toLowerCase() === 'monthly') {
     e.target.classList.add('selected');
-    
     loadTrafficChart.monthly();
   }
-  if (e.target.innerText.toLowerCase()=== 'weekly') {
+  if (e.target.innerText.toLowerCase() === 'weekly') {
     e.target.classList.add('selected');
     loadTrafficChart.weekly();
   }
-  if (e.target.innerText.toLowerCase()=== 'daily') {
+  if (e.target.innerText.toLowerCase() === 'daily') {
     e.target.classList.add('selected');
     loadTrafficChart.daily();
   }
-  if (e.target.innerText.toLowerCase()=== 'hourly') {
+  if (e.target.innerText.toLowerCase() === 'hourly') {
     e.target.classList.add('selected');
     loadTrafficChart.hourly();
   }
 })
 
 //----- close alert -----
-alertButton.addEventListener("click", function() {
+alertButton.addEventListener("click", function () {
   alert.style.display = "none";
 });
 
 //-----  error messages and sent confirmation simulator (needs refactoring) -----
 
-sendButton.addEventListener("click", function() {
-    user.addEventListener("input", function(e) {
-      sendButton.innerText = "Send";
-      sendButton.style.backgroundColor = "#7477bf";
-      if (this.value) {
-        this.style.borderColor = "#81c98f";
-      } else {
-        this.style.borderColor = "red";
-      }
-    });
-    message.addEventListener("input", function(e) {
-      sendButton.innerText = "Send";
-      sendButton.style.backgroundColor = "#7477bf";
-      if (this.value) {
-        this.style.borderColor = "#81c98f";
-      } else {
-        this.style.borderColor = "red";
-      }
-    });
+sendButton.addEventListener("click", function () {
+  user.addEventListener("input", function (e) {
+    sendButton.innerText = "Send";
+    sendButton.style.backgroundColor = "#7477bf";
+    if (this.value) {
+      this.style.borderColor = "#81c98f";
+    } else {
+      this.style.borderColor = "red";
+    }
+  });
+  message.addEventListener("input", function (e) {
+    sendButton.innerText = "Send";
+    sendButton.style.backgroundColor = "#7477bf";
+    if (this.value) {
+      this.style.borderColor = "#81c98f";
+    } else {
+      this.style.borderColor = "red";
+    }
+  });
   if (!user.value && !message.value) {
     user.style.borderColor = "red";
     message.style.borderColor = "red";
@@ -379,19 +361,19 @@ sendButton.addEventListener("click", function() {
 // ----- save and cancel settings  -----
 
 let settings = {
-  load: function() {
+  load: function () {
     timeZone.selectedIndex = localStorage.selectedIndex;
     emailNotifSwitch.checked = JSON.parse(localStorage.sendEmail);
     profilePublicSwitch.checked = JSON.parse(localStorage.setProfile);
   },
-  setUpEventListeners: function() {
-    saveButton.addEventListener("click", function() {
+  setUpEventListeners: function () {
+    saveButton.addEventListener("click", function () {
       localStorage.saveSettings = true;
       localStorage.selectedIndex = timeZone.selectedIndex;
       localStorage.sendEmail = emailNotifSwitch.checked;
       localStorage.setProfile = profilePublicSwitch.checked;
     });
-    cancelButton.addEventListener("click", function() {
+    cancelButton.addEventListener("click", function () {
       settings.load();
     });
   }
@@ -402,36 +384,24 @@ if (localStorage.saveSettings) {
   settings.load();
 }
 
-// ----- autocomplete function -----
 
+
+//----- random users ------
+let names = ["Victoria Chambers", "Dale Byrd", "Dawn Wood", "Dan Oliver"];
+$.ajax({
+  url: 'https://randomuser.me/api/?results=100&inc=name&noinfo',
+  dataType: 'json',
+  success: function (data) {
+    for (let i = 0; i < data.results.length; i++) {
+      names.push(data.results[i].name.first.charAt(0).toUpperCase() + data.results[i].name.first.slice(1) + ' ' + data.results[i].name.last.charAt(0).toUpperCase() + data.results[i].name.last.slice(1));
+    }
+  }
+});
+
+// ----- autocomplete function -----
 let autoComplete = {
-  users: [
-    "Victoria Chambers",
-    "Dale Byrd",
-    "Dawn Wood",
-    "Dan Oliver",
-    "Ricardo Trautman",
-    "Alfredo Debelak",
-    "Benny Medlin",
-    "Tiera Ollis",
-    "Vanita Chevere",
-    "Shiloh Clarkson",
-    "Maryann Krull",
-    "Rachel Lain",
-    "Veola Christofferso",
-    "Catherin Kifer",
-    "Vergie Templin",
-    "France Mackley",
-    "Ethelyn Nourse",
-    "Gloria Hochman",
-    "Daren Drinkwater",
-    "Emelina Gulbranson",
-    "Cristin Weil",
-    "Jessica Hopton",
-    "Amada Champney",
-    "Shan Seldon"
-  ],
-  searchUsers: function(arr, str) {
+  users: names,
+  searchUsers: function (arr, str) {
     let results = [];
     for (let i = 0; i < arr.length; i++) {
       let temp = autoComplete.users[i].slice(0, str.length);
@@ -441,13 +411,13 @@ let autoComplete = {
     }
     autoComplete.render(results);
   },
-  render: function(arr) {
+  render: function (arr) {
     for (let i = 0; i < arr.length; i++) {
       ul.innerHTML += "<li>" + arr[i] + "</li>";
     }
   },
-  setUpEventListeners: function() {
-    user.addEventListener("input", function(e) {
+  setUpEventListeners: function () {
+    user.addEventListener("input", function (e) {
       let input = this.value;
       if (this.value.length > 0) {
         ul.innerHTML = "";
@@ -456,7 +426,7 @@ let autoComplete = {
         ul.innerHTML = "";
       }
     });
-    ul.addEventListener("click", function(e) {
+    ul.addEventListener("click", function (e) {
       user.value = e.target.innerText;
       this.innerHTML = "";
     });
@@ -472,7 +442,7 @@ let popUpNotifs = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.",
     "Praesent libero. Sed cursus ante dapibus diam. Sed nisi."
   ],
-  render: function() {
+  render: function () {
     notifications.innerHTML = "";
     for (let i = 0; i < popUpNotifs.notifs.length; i++) {
       let newNotif = document.createElement("P");
@@ -480,17 +450,17 @@ let popUpNotifs = {
       newNotif.innerHTML =
         "<span>" + "&times; " + "</span>" + popUpNotifs.notifs[i];
       notifications.appendChild(newNotif);
-      newNotif.querySelector("span").addEventListener("click", function(e) {
+      newNotif.querySelector("span").addEventListener("click", function (e) {
         e.target.parentNode.style.display = "none";
       });
     }
   },
-  setUpEventListeners: function() {
-    notification.addEventListener("click", function() {
+  setUpEventListeners: function () {
+    notification.addEventListener("click", function () {
       popUp.style.display = "flex";
       popUpNotifs.render();
     });
-    closeNotifButton.addEventListener("click", function() {
+    closeNotifButton.addEventListener("click", function () {
       popUp.style.display = "none";
     });
   }
