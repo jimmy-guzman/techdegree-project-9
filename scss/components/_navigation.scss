@@ -1,9 +1,14 @@
-.sidebar {
-    background: $secondary-color;
-    @include e(item) {
-        margin: 1.5em;
+// ----- side navigation -----
+.side-nav{
+  background: $secondary-color;
+  @include e(item) {
+    margin: 1.5em;
+    &:not(:first-child) {
+      opacity: 0.6;
     }
-    &__item:not(:first-child) {
-        opacity: .6;
-    }
+  }
+  @include flex(flex, row, space-around);
+  @include mq(medium) {
+    @include flex(flex, column, baseline);
+  }
 }

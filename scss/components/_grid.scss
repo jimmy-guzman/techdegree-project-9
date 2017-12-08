@@ -3,14 +3,13 @@ body {
   @include mq(medium) {
     background: $lightgrey;
   }
- 
 }
+
 .container {
   width: 100%;
-
 }
+
 .grid {
- 
   @include e(row) {
     @include mq(medium) {
       @include flex(flex, row, space-between);
@@ -28,17 +27,6 @@ body {
   }
 }
 
-.sidebar {
-  @include flex(flex, row, space-around);
-  @include mq(medium) {
-    @include flex(flex, column, baseline);
-  }
-}
-
-.switch-bar {
-  @include flex(flex, row, space-between);
-}
-
 .daily-traffic,
 .new-members,
 .message-user {
@@ -53,13 +41,35 @@ body {
   padding: 1em;
 }
 
-
-.dashboard > .grid__row:not(:first-child) {
-  @extend %border-bottom;
-}
-
 .dashboard {
+  > .grid__row:not(:first-child) {
+    @extend %border-bottom;
+  }
   max-width: 1400px;
   margin: 0 auto;
   background: $white;
+  @include e(title) {
+    vertical-align: middle;
+    margin-top: 1em;
+    margin-left: 1em;
+    font-weight: $font-weight--regular;
+  }
+  @include e(search) {
+    @include flex(flex, row, center);
+    @include mq(medium) {
+      width: 75%;
+      @include flex(flex, row, flex-end);
+    }
+    padding: 1em;
+    @extend %border-bottom;
+    border-left: 1px solid $border-color;
+    background: $alabaster;
+    input {
+      margin-right: 0;
+      width: 50%;
+      @extend %border-default;
+      padding: 0.7em;
+      border: 1px solid $border-color;
+    }
+  }
 }

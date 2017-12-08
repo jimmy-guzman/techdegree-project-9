@@ -18,87 +18,76 @@
 }
 
 // settings toggle switch
-.label {
-  position: absolute;
-  z-index: 100;
-  width: 95px;
-  height: 34px;
-  cursor: pointer;
-}
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 95px;
-  height: 34px;
-  input {
-    display: none;  
-  }
+
+.switch-bar {
+  @include flex(flex, row, space-between);
+  margin-bottom: 1em;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: $grey;
-  border: 2px solid $lightgrey;
-  border-radius: 34px;
-  transition: 0.4s;
-  input:checked + & {
-    background-color: $primary-color;
-  }
-  &:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 3.5px;
-    background: $white;
-    border: 2px solid $lightgrey;
-    border-radius: $br--round;
-    transition: 0.4s;
-    input:checked + & {
-      transform: translateX(250%);
-    }
-  }
-  .on {
-    @extend %toggle-switch-onoff;
-    display: none;
-    transform: translate(-50%, -50%);
-    input:checked + & {
-      display: block;
-    }
-  }
-  .off {
-    @extend %toggle-switch-onoff;
-    transform: translate(100%, -50%);
-    input:checked + & {
+.toggle {
+  @include e(switch) {
+    position: relative;
+    display: inline-block;
+    width: 95px;
+    height: 34px;
+    input {
       display: none;
     }
+    label {
+      position: absolute;
+      z-index: 100;
+      width: 95px;
+      height: 34px;
+      cursor: pointer;
+    }
+  }
+  @include e(slider) {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $grey;
+    border: 2px solid $lightgrey;
+    border-radius: 34px;
+    transition: 0.4s;
+    input:checked + & {
+      background-color: $primary-color;
+    }
+    &:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 3.5px;
+      background: $white;
+      border: 2px solid $lightgrey;
+      border-radius: $br--round;
+      transition: 0.4s;
+      input:checked + & {
+        transform: translateX(250%);
+      }
+    }
+    .on {
+      @extend %toggle-switch-onoff;
+      display: none;
+      transform: translate(-50%, -50%);
+      input:checked + & {
+        display: block;
+      }
+    }
+    .off {
+      @extend %toggle-switch-onoff;
+      transform: translate(100%, -50%);
+      input:checked + & {
+        display: none;
+      }
+    }
   }
 }
 
-.settings-label {
+.settings__label {
   margin: auto 0;
-}
-
-.widget-buttons {
-  margin-top: 1.3em;
-  button {
-    padding: .3em;
-    border-radius: 1em;
-    margin-right: 1em;
-    font-weight: $font-weight--bold;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: $darkgrey;
-  }
-  .selected {
-    background: $de-york;
-    color: $white;
-  }
 }

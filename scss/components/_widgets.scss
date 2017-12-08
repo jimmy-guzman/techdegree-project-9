@@ -1,119 +1,122 @@
+.widget {
+  @include e(header) {
+    @include flex(flex, row, space-between, $items: center);
+  }
+  @include e(buttons-container) {
+    margin-top: 1.3em;
+    button {
+      padding: 0.3em;
+      border-radius: 1em;
+      margin-right: 1em;
+      font-weight: $font-weight--bold;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: $darkgrey;
+    }
+    .selected {
+      background: $de-york;
+      color: $white;
+    }
+  }
+  @include e(title) {
+    display: block;
+    margin: 1.3em 0 0 1.3em;
+  }
+}
+
 //----- new members and recent activity widgets -----
 
-.newmember-image {
-  width: 40px;
-  height: 40px;
-  border-radius: $br--round;
-  margin-left: 1em;
-  @include mq(medium) {
-    margin-left: 0;
+.activity {
+  @include flex (flex, column, center);
+  > div {
+    padding: 1em 0;
+    &:not(:last-child) {
+      @extend %border-bottom;
+    }
+    margin-bottom: 1em;
+    @include mq(medium) {
+      height: 70px;
+    }
   }
-}
-
-.newmember-info {
-  list-style: none;
-  padding: 0;
-  margin: auto 0 auto 0.7em;
-  li:last-child {
-    color: $primary-color;
-    font-size: 12px;
+  @include e(image) {
+    width: 40px;
+    height: 40px;
+    border-radius: $br--round;
+    margin-left: 1em;
+    @include mq(medium) {
+      margin-left: 0;
+    }
   }
-}
-
-.newmembers > div {
-  padding: 1em 0;
-  &:not(:last-child) {
-    @extend %border-bottom;
+  @include e(info) {
+    list-style: none;
+    padding: 0;
+    margin: auto 0 auto 0.7em;
+    li:last-child {
+      color: $primary-color;
+      font-size: 12px;
+    }
   }
-  margin-bottom: 1em;
-  @include mq(medium) {
-    height: 70px;
-  }
-}
-
-.signup-date a {
-  font-size: 3em;
-  color: $primary-color;
-}
-.signup-date {
-  text-align: right;
-}
-
-//----- social stats widget -----
-
-.social-stats {
-  padding:1.3em 1em 2.6em;
-}
-
-.icon__bg--social {
-  padding: 1em;
-  margin-left: 0;
-  background: $primary-color;
-  border-radius: $br--round;
-  height: 75px;
-  width: 75px;
-  @include flex (flex, $items: center);
-  svg {
-    margin: 0 auto;
-    display: block;
-    transform-origin: 50% 50%;
-  }
-  svg path {
-    fill: #fff;
-  }
-  .twitter__icon {
-    transform: translateY(3px);
-  }
-  .facebook__icon {
-    transform: translateY(-3.3px);
-  }
-}
-
-.icon__container--social {
-  background: #fbfbfb;
-  @include flex (flex, row, $items: center);
-  margin-bottom: 1.3em;
-  @include mq(medium) {
-    margin: 0 auto;
-  }
-
-  padding: 1em;
-  @extend %border-default;
-  h3 {
-    color: $primary-color;
-    margin: 0;
-  }
-  p {
-    font-size: 3em;
-    margin: 0;
-    @include mq(large) {
-      font-size: 4em;
+  @include e(date) {
+    text-align: right;
+    a {
+      font-size: 3em;
+      color: $primary-color;
     }
   }
 }
 
-.social-text {
-  margin-left: 1em;
-}
 
-.message-user {
-  ul {
-    list-style: none;
-    -webkit-margin-before: 0;
-    -webkit-padding-start: 0;
-    li {
+
+//----- social stats widget -----
+.social-icon {
+  @include e(bg){
+    padding: 1em;
+    margin-left: 0;
+    background: $primary-color;
+    border-radius: $br--round;
+    height: 75px;
+    width: 75px;
+    @include flex (flex, $items: center);
+    svg {
       margin: 0 auto;
-      width: 95%;
-      cursor: pointer;
-      border-radius: $br--default;
       display: block;
-      border: 1px solid $border-color;
-      background: #fbfbfb;
-      padding: .5em;
-      margin-bottom: .3em;
-      &:hover {
-        border-color: $primary-color;
+      transform-origin: 50% 50%;
+    }
+    svg path {
+      fill: #fff;
+    }
+  }
+  @include m(twitter) {
+    transform: translateY(3px);
+  }
+  @include m(facebook) {
+    transform: translateY(-3.3px);
+  }
+  @include e(container){
+    background: $alabaster;
+    @include flex (flex, row, $items: center);
+    margin-bottom: 1.3em;
+    @include mq(medium) {
+      margin: 0 auto;
+    }
+    padding: 1em;
+    @extend %border-default;
+    h3 {
+      color: $primary-color;
+      margin: 0;
+    }
+    p {
+      font-size: 3em;
+      margin: 0;
+      @include mq(large) {
+        font-size: 4em;
       }
     }
   }
+  @include e(text){
+    margin-left: 1em;
+  }
 }
+
+
