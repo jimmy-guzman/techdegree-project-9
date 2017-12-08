@@ -19,10 +19,11 @@ const popUp = document.querySelector(".pop-up");
 const notifications = popUp.querySelector(".notifications");
 const poUpbutton = document.getElementById("closeNotifButton");
 
-// ----- chart js set up  (needs a lot of refactoring)-----
+// ----- chart js set up -----
+
 // ----- daily traffic chart-----
-var ctx = document.getElementById("dailyTrafficChart").getContext("2d");
-var dailyTrafficChart = new Chart(ctx, {
+
+var dailyChart = new Chart(dailyTrafficChart, {
   type: "bar",
   data: {
     labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -60,8 +61,7 @@ var dailyTrafficChart = new Chart(ctx, {
   }
 });
 // -----mobile chart-----
-var cty = document.getElementById("mobileUsersChart").getContext("2d");
-var mobileUsersChart = new Chart(cty, {
+var mobileChart = new Chart(mobileUsersChart, {
   type: "doughnut",
   data: {
     labels: ["Tablets", "Phones", "Desktop"],
@@ -89,9 +89,7 @@ var mobileUsersChart = new Chart(cty, {
 });
 
 // -----traffic charts data and options (hourly, daily, weekyly, monthly)-----
-const trafficChartContext = document
-  .getElementById("trafficChartMonthly")
-  .getContext("2d");
+
 const makeTrafficChart = {
   options: {
     legend: {
@@ -116,37 +114,10 @@ const makeTrafficChart = {
     }
   },
   monthly: {
-    labels: [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ],
+    labels: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
     datasets: [
-      {
-        label: "",
-        data: [
-          750,
-          1250,
-          750,
-          1250,
-          1750,
-          1250,
-          1500,
-          1000,
-          1500,
-          2000,
-          250,
-          1800
-        ],
+      {    
+        data: [ 750, 1250, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 250, 1800 ],
         backgroundColor: "rgba(116, 119, 191, .25)",
         borderColor: "#7477bf",
         borderWidth: 1,
@@ -157,36 +128,10 @@ const makeTrafficChart = {
     ]
   },
   weekly: {
-    labels: [
-      "16-22",
-      "23-29",
-      "30-5",
-      "6-12",
-      "13-19",
-      "20-26",
-      "27-3",
-      "4-10",
-      "11-17",
-      "18-24",
-      "25-31r"
-    ],
+    labels: [ "16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31" ],
     datasets: [
-      {
-        label: "",
-        data: [
-          500,
-          1000,
-          750,
-          1250,
-          1750,
-          1250,
-          1500,
-          1000,
-          1500,
-          2000,
-          1500,
-          2000
-        ],
+      {       
+        data: [ 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000 ],
         backgroundColor: "rgba(116, 119, 191, .25)",
         borderColor: "#7477bf",
         borderWidth: 1,
@@ -197,18 +142,9 @@ const makeTrafficChart = {
     ]
   },
   daily: {
-    labels: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
+    labels: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
     datasets: [
-      {
-        label: "",
+      {   
         data: [75, 50, 75, 150, 100, 200, 175],
         backgroundColor: "rgba(116, 119, 191, .25)",
         borderColor: "#7477bf",
@@ -220,60 +156,10 @@ const makeTrafficChart = {
     ]
   },
   hourly: {
-    labels: [
-      "00:00",
-      "01:00",
-      "02:00",
-      "03:00",
-      "04:00",
-      "05:00",
-      "06:00",
-      "07:00",
-      "08:00",
-      "09:00",
-      "10:00",
-      "11:00",
-      "12:00",
-      "13:00",
-      "14:00",
-      "15:00",
-      "16:00",
-      "17:00",
-      "18:00",
-      "19:00",
-      "21:00",
-      "22:00",
-      "23:00"
-    ],
+    labels: [ "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "21:00", "22:00", "23:00" ],
     datasets: [
-      {
-        label: "",
-        data: [
-          75,
-          50,
-          75,
-          150,
-          100,
-          200,
-          175,
-          25,
-          5,
-          10,
-          10,
-          25,
-          50,
-          100,
-          250,
-          5,
-          0,
-          15,
-          30,
-          20,
-          25,
-          200,
-          170,
-          150
-        ],
+      { 
+        data: [ 75, 50, 75, 150, 100, 200, 175, 25, 5, 10, 10, 25, 50, 100, 250, 5, 0, 15, 30, 20, 25, 200, 170, 150 ],
         backgroundColor: "rgba(116, 119, 191, .25)",
         borderColor: "#7477bf",
         borderWidth: 1,
@@ -284,66 +170,53 @@ const makeTrafficChart = {
     ]
   }
 };
-
-// -----traffic charts set up (hourly, daily, weekyly, monthly)-----
-const loadTrafficChart = {
-  monthly: function() {
-    var ctz = trafficChartContext;
-    var trafficChartMonthly = new Chart(ctz, {
-      type: "line",
-      data: makeTrafficChart.monthly,
-      options: makeTrafficChart.options
-    });
-  },
-  weekly: function() {
-    var ctz = trafficChartContext;
-    var trafficChartMonthly = new Chart(ctz, {
-      type: "line",
-      data: makeTrafficChart.weekly,
-      options: makeTrafficChart.options
-    });
-  },
-  daily: function() {
-    var ctz = trafficChartContext;
-    var trafficChartMonthly = new Chart(ctz, {
-      type: "line",
-      data: makeTrafficChart.daily,
-      options: makeTrafficChart.options
-    });
-  },
-  hourly: function() {
-    var ctz = trafficChartContext;
-    var trafficChartMonthly = new Chart(ctz, {
-      type: "line",
-      data: makeTrafficChart.hourly,
-      options: makeTrafficChart.options
-    });
-  }
-};
-
-// -----load different traffic charts (hourly, daily, weekyly, monthly)-----
-loadTrafficChart.monthly();
 const widgetButtons = document.querySelector(".widget__buttons-container");
 
+// -----load traffic charts(hourly, daily, weekyly, monthly)-----
+
+var tC = new Chart(trafficChart, {
+  type: "line",
+  data: makeTrafficChart.weekly,
+  options: makeTrafficChart.options
+});
 widgetButtons.addEventListener("click", function(e) {
   for (let i = 0; i < widgetButtons.children.length; i++) {
     widgetButtons.children[i].classList.remove("selected");
   }
+  if (tC) {
+    tC.destroy();
+  }
   if (e.target.innerText.toLowerCase() === "monthly") {
     e.target.classList.add("selected");
-    loadTrafficChart.monthly();
+    tC = new Chart(trafficChart, {
+      type: "line",
+      data: makeTrafficChart.monthly,
+      options: makeTrafficChart.options
+    });
   }
   if (e.target.innerText.toLowerCase() === "weekly") {
     e.target.classList.add("selected");
-    loadTrafficChart.weekly();
+    tC = new Chart(trafficChart, {
+      type: "line",
+      data: makeTrafficChart.weekly,
+      options: makeTrafficChart.options
+    });
   }
   if (e.target.innerText.toLowerCase() === "daily") {
     e.target.classList.add("selected");
-    loadTrafficChart.daily();
+    tC = new Chart(trafficChart, {
+      type: "line",
+      data: makeTrafficChart.daily,
+      options: makeTrafficChart.options
+    });
   }
   if (e.target.innerText.toLowerCase() === "hourly") {
     e.target.classList.add("selected");
-    loadTrafficChart.hourly();
+    tC = new Chart(trafficChart, {
+      type: "line",
+      data: makeTrafficChart.hourly,
+      options: makeTrafficChart.options
+    });
   }
 });
 
@@ -477,14 +350,9 @@ autoComplete.setUpEventListeners();
 // -----notification popups----
 let newNotifCount = 0;
 
-
 let popUpNotifs = {
-  notifs: [
-    "You have new messages",
-    "Your password has changed recently"
-  ],
+  notifs: ["You have new messages", "Your password has changed recently"],
   render: function() {
-
     for (let i = 0; i < popUpNotifs.notifs.length; i++) {
       let newNotif = document.createElement("P");
       newNotifCount += 1;
@@ -504,13 +372,10 @@ let popUpNotifs = {
     closeNotifButton.addEventListener("click", function() {
       popUp.style.display = "none";
       if (newNotifCount === 0) {
-        notification.classList.add('remove');
+        notification.classList.add("remove");
       }
     });
   }
 };
 popUpNotifs.render();
 popUpNotifs.setUpEventListeners();
-
-
-

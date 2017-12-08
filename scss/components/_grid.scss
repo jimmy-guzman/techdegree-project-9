@@ -50,14 +50,14 @@ body {
   background: $white;
   @include e(title) {
     vertical-align: middle;
-    margin-top: 1em;
-    margin-left: 1em;
+    margin: 1em 1em 0 1em;
+  
     font-weight: $font-weight--regular;
   }
   @include e(search) {
     @include flex(flex, row, center);
     @include mq(medium) {
-      width: 75%;
+      width: 100%;
       @include flex(flex, row, flex-end);
     }
     padding: 1em;

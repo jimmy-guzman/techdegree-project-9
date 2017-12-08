@@ -5,6 +5,7 @@
   @include e(buttons-container) {
     margin-top: 1.3em;
     button {
+     
       padding: 0.3em;
       border-radius: 1em;
       margin-right: 1em;
@@ -17,6 +18,7 @@
     .selected {
       background: $de-york;
       color: $white;
+      transition: .7s;
     }
   }
   @include e(title) {
@@ -86,9 +88,12 @@
     svg path {
       fill: #fff;
     }
+    @include m(twitter) {
+      width: 175px;
+    }
   }
   @include m(twitter) {
-    transform: translateY(3px);
+    transform:  translateY(3px);
   }
   @include m(facebook) {
     transform: translateY(-3.3px);
