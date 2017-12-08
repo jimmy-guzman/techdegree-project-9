@@ -50,17 +50,18 @@
 }
 
 .pop-up {
+  height: 150px;
   .notifications {
-    padding: 1em 0;
+    margin: auto 0;
   }
   @include flex(flex, column-reverse, space-between);
   @include mq (medium) {
+    height: 100px;
     width: 500px;
     right: 1em;
     top: 5em;
   }
   top: 12em;
-
   width: 270px;
   display: none;
   border: 1px solid $border-color;
@@ -69,6 +70,7 @@
   background: $alabaster;
   color: $primary-color;
   button {
+    font-family: $font-family--primary;
     margin: 0 auto;
     width: 100%;
     background: $primary-color;
@@ -83,8 +85,11 @@
     }
   }
   p {
+    -webkit-margin-before: .5em;
+    -webkit-margin-after: .5em;
+    font-weight: $font-weight--bold;
     line-height: 1;
-    padding: 0.6em;
+    padding: 0.3em 0.3em;
     span {
       cursor: pointer;
       display: inline-block;
