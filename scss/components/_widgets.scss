@@ -5,7 +5,6 @@
   @include e(buttons-container) {
     margin-top: 1.3em;
     button {
-     
       padding: 0.3em;
       border-radius: 1em;
       margin-right: 1em;
@@ -18,7 +17,7 @@
     .selected {
       background: $de-york;
       color: $white;
-      transition: .7s;
+      transition: 0.7s;
     }
   }
   @include e(title) {
@@ -68,11 +67,9 @@
   }
 }
 
-
-
 //----- social stats widget -----
 .social-icon {
-  @include e(bg){
+  @include e(bg) {
     padding: 1em;
     margin-left: 0;
     background: $primary-color;
@@ -89,21 +86,24 @@
       fill: #fff;
     }
     @include m(twitter) {
-      width: 175px;
+      @include mq(medium) {
+        width: 175px;
+      }
+      
     }
   }
   @include m(twitter) {
-    transform:  translateY(3px);
+    transform: translateY(3px);
   }
   @include m(facebook) {
     transform: translateY(-3.3px);
   }
-  @include e(container){
+  @include e(container) {
     background: $alabaster;
     @include flex (flex, row, $items: center);
     margin-bottom: 1.3em;
     @include mq(medium) {
-      margin: 0 auto;
+      margin: 1.5em auto;
     }
     padding: 1em;
     @extend %border-default;
@@ -119,9 +119,7 @@
       }
     }
   }
-  @include e(text){
+  @include e(text) {
     margin-left: 1em;
   }
 }
-
-

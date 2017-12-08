@@ -321,7 +321,7 @@ body {
   .widget__buttons-container .selected {
     background: #81c98f;
     color: #fff;
-    transition: .7s; }
+    transition: 0.7s; }
 .widget__title {
   display: block;
   margin: 1.3em 0 0 1.3em; }
@@ -372,8 +372,9 @@ body {
     transform-origin: 50% 50%; }
   .social-icon__bg svg path {
     fill: #fff; }
-  .social-icon__bg--twitter {
-    width: 175px; }
+  @media (min-width: 769px) {
+    .social-icon__bg--twitter {
+      width: 175px; } }
 .social-icon--twitter {
   transform: translateY(3px); }
 .social-icon--facebook {
@@ -387,7 +388,7 @@ body {
   padding: 1em; }
   @media (min-width: 769px) {
     .social-icon__container {
-      margin: 0 auto; } }
+      margin: 1.5em auto; } }
   .social-icon__container h3 {
     color: #7477bf;
     margin: 0; }
