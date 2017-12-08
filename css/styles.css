@@ -250,15 +250,23 @@ body {
     .side-nav__item:first-child {
       position: relative; }
       .side-nav__item:first-child:after {
-        position: absolute;
-        content: "";
-        top: -10px;
-        left: -100%;
+        left: 0;
+        top: 49px;
         margin: 0 auto;
         width: 100%;
-        padding-top: 70%;
-        border-right: 3px solid #81c98f;
+        position: absolute;
+        content: "";
+        border-top: 3px solid #81c98f;
         border-radius: 0.3em; }
+        @media (min-width: 769px) {
+          .side-nav__item:first-child:after {
+            padding-top: 100%;
+            border-right: 3px solid #81c98f;
+            top: -10px;
+            left: -100%;
+            margin: 0 auto;
+            width: 100%;
+            padding-top: 70%; } }
     .side-nav__item:not(:first-child) {
       opacity: 0.6; }
   @media (min-width: 769px) {
